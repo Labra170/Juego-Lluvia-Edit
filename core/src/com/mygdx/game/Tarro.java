@@ -15,7 +15,6 @@ public class Tarro {
 	   private Sound sonidoHerido;
 	   private int vidas = 3;
 	   private int puntos = 0;
-	   private int velx = 400;
 	   private boolean herido = false;
 	   private int tiempoHeridoMax=50;
 	   private int tiempoHerido;
@@ -43,7 +42,7 @@ public class Tarro {
 	
 	   public void crear() {
 		      bucket = new Rectangle();
-		      bucket.x = 800 / 2 - 64 / 2;
+		      bucket.x = 256;
 		      bucket.y = 20;
 		      bucket.width = 64;
 		      bucket.height = 64;
@@ -66,22 +65,13 @@ public class Tarro {
 	   } 
 	   
 	   
-	   public void actualizarMovimiento() { 
-		   // movimiento desde mouse/touch
-		   /*if(Gdx.input.isTouched()) {
-			      Vector3 touchPos = new Vector3();
-			      touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-			      camera.unproject(touchPos);
-			      bucket.x = touchPos.x - 64 / 2;
-			}*/
-		   //movimiento desde teclado
-		   if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) bucket.x -= velx * Gdx.graphics.getDeltaTime();
-		   if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) bucket.x += velx * Gdx.graphics.getDeltaTime();
-		   if(Gdx.input.isKeyPressed(Input.Keys.A)) bucket.x -= velx * Gdx.graphics.getDeltaTime();
-		   if(Gdx.input.isKeyPressed(Input.Keys.D)) bucket.x += velx * Gdx.graphics.getDeltaTime();
+	   public void actualizarMovimiento() {
+		   // movimiento desde teclado
+		   if(Gdx.input.isKeyJustPressed(Input.Keys.A)) bucket.x -= 128;
+		   if(Gdx.input.isKeyJustPressed(Input.Keys.D)) bucket.x += 128;
 		   // que no se salga de los bordes izq y der
-		   if(bucket.x < 0) bucket.x = 0;
-		   if(bucket.x > 800 - 64) bucket.x = 800 - 64;
+		   if(bucket.x < 256) bucket.x = 256;
+		   if(bucket.x > 512) bucket.x = 512;
 	   }
 	    
 
