@@ -27,15 +27,15 @@ public class GameScreen implements Screen {
         this.font = game.getFont();
 		  // load the images for the droplet and the bucket, 64x64 pixels each 	     
 		  Sound hurtSound = Gdx.audio.newSound(Gdx.files.internal("hurt.ogg"));
-		  tarro = new Tarro(new Texture(Gdx.files.internal("bucket.png")),hurtSound);
+		  tarro = new Tarro(new Texture(Gdx.files.internal("cesta.png")),hurtSound);
          
 	      // load the drop sound effect and the rain background "music" 
-         Texture gota = new Texture(Gdx.files.internal("drop.png"));
-         Texture gotaMala = new Texture(Gdx.files.internal("dropBad.png"));
+         Texture gota = new Texture(Gdx.files.internal("fresa.png"));
+         Texture gotaMala = new Texture(Gdx.files.internal("basura.png"));
          
          Sound dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
         
-	     Music rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+	     Music rainMusic = Gdx.audio.newMusic(Gdx.files.internal("musica.mp3"));
          lluvia = new Lluvia(gota, gotaMala, dropSound, rainMusic);
 	      
 	      // camera
@@ -47,6 +47,8 @@ public class GameScreen implements Screen {
 	      
 	      // creacion de la lluvia
 	      lluvia.crear();
+	      
+	      
 	}
 
 	@Override

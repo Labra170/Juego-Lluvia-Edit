@@ -45,13 +45,17 @@ public class Tarro {
 		      bucket.x = 256;
 		      bucket.y = 20;
 		      bucket.width = 64;
-		      bucket.height = 64;
+		      bucket.height = 16;
 	   }
 	   public void dañar() {
 		  vidas--;
 		  herido = true;
 		  tiempoHerido=tiempoHeridoMax;
 		  sonidoHerido.play();
+	   }
+	   public void sanar()
+	   {
+		   vidas++;
 	   }
 	   public void dibujar(SpriteBatch batch) {
 		 if (!herido)  
